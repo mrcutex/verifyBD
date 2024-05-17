@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⭐ SystemErrorBD ⭐</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #444;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        #container {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #loading-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #progress {
+            width: 0%;
+            height: 20px;
+            background-color: #4baaff;
+            border-radius: 5px;
+        }
+
+        .loading {
+            color: #eeeeee;
+            font-weight: italic;
+        }
+
+        .completed {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .reward {
+            margin-bottom: 40px;
+        }
+
+        .reward img {
+            max-width: 100px;
+            margin-bottom: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .developer-details {
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        .developer-name {
+            color: #ddd;
+        }
+
+        .telegram-label {
+            color: #ddd;
+        }
+
+        .developer-bold {
+            font-weight: bold;
+            color: #f0f0f0;
+        }
+    </style>
+    <script>
+        function simulateProgress() {
+            var elem = document.getElementById("progress");
+            var width = 0;
+            var id = setInterval(frame, 30);
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('completion').style.display = 'block';
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                }
+            }
+        }
+
+        function showCompletionMessage() {
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('completion').style.display = 'block';
+            }, 1000);
+        }
+
+        window.onload = function() {
+            simulateProgress();
+            showCompletionMessage();
+        };
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div class="reward" id="reward">
+            <img src="assets/reward.png" alt="Reward">
+        </div>
+
+        <h1>⭐ SystemErrorBD ⭐</h1>
+        <div id="loading-bar">
+            <div id="progress"></div>
+        </div>
+        <p class="loading" id="loading">Please wait...</p>
+        <p class="completed" id="completion" style="display: none;">Congratulations! You've unlock all the Premium content 🎉</p>
+
+        <div class="developer-details">
+            <p><span class="developer-name">Powered By:</span> <span class="developer-bold">𝐆𝐞𝐭𝐅𝐫𝐞𝐞𝐌𝐨𝐝</span></p>
+            <p><span class="telegram-label">Telegram:</span> <span class="developer-bold"> @SystemErrorBD</span></p>
+        </div>
+    </div>
+</body>
+</html>
